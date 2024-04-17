@@ -1,0 +1,125 @@
+body { 
+    height: 100vh;
+    
+    margin: 0;
+    padding: 0;
+    
+    background: linear-gradient(to top right, #14012c, #000000);
+
+    font-family: 'Kode Mono', monospace;
+}
+
+/* css for entire header, including title and clock */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 3vh;
+}
+
+/* css for title in top-left corner */
+#title { 
+    margin: 1vh;
+
+    color: white;
+    font-size: 4em;
+    
+    white-space: nowrap;
+    overflow: hidden;
+}
+#typingContainer {
+    white-space: nowrap;
+    color: white;
+
+    overflow: hidden;
+}
+#blinkingCursor {
+    display: inline-block;
+    height: 6vh;
+    width: 2px;
+
+    background-color: #ffffff;
+
+    animation: blink 1.25s infinite; /* Blink animation */
+}
+
+/* css for clock in top-right corner */
+#clock {
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+.icon {
+    max-width: 60px;
+    max-height: 60px;
+}
+.iconSmall {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+/* css for container that holds all widgets */
+.container {
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, 1fr);
+
+    place-items: center;
+    gap: 2vh;
+
+    margin: 0 2vw;
+}
+
+.widget {
+    min-height: 40vh;
+    max-height: 40vh;
+
+    min-width: 100%;
+    max-width: 400px;
+
+    border-radius: 16px;
+    box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.2);
+}
+.widget::-webkit-scrollbar {
+    display: none;
+}
+/* .widget:not(.quickLinksContainer):not(.newsContainer) {
+    transition: transform 0.25s ease-in-out;
+}
+
+.container .widget:not(.quickLinksContainer):not(.newsContainer):hover {
+    cursor: pointer;
+    transform: scale(1.1);
+} */
+
+
+/* used to create blinking effect on the cursor in the title */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column;
+    }
+    #typingContainer {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 4vh;
+    }
+}

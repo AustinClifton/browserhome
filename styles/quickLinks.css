@@ -1,0 +1,89 @@
+/* css for weather weidget */
+.quickLinksContainer {
+    grid-row: 1/3;
+    grid-column: 4;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border-radius: 16px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.quickLinksContainer h2 {
+    display: flex;
+    align-items: start;
+    height: 3.75vh;
+
+    margin: 0;
+    padding: 0 5px;
+
+    color: rgb(130, 205, 230);
+}
+.quickLinksContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* css for entire link block */
+.linkBlock {
+    display: flex;
+    align-items: center;
+
+    min-width: 100%;
+    max-width: 100%;
+    height: 70px;
+
+    margin: 5px 0;
+
+    background: linear-gradient(to right, #0e0e0e, #010101);
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.quickLinksContainer a {
+    text-decoration: none !important;
+}
+.linkName {
+    margin-left: 10px;
+
+    color: white;
+    font-size: 1.15em;
+}
+.linkBlock:hover {
+    background: rgb(50, 50, 50);
+}
+
+.linkIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 50px;
+        max-width: 50px;
+        min-height: 50px;
+        max-height: 50px;
+
+    margin: 0 3%;
+}
+.linkUrl {
+    width: 100%;
+
+    color: rgb(169, 169, 169);
+    font-size: 0.6em;
+}
+.generalLinks,
+.schoolLinks,
+.workLinks,
+.codeLinks,
+.cryptoLinks,
+.gamesLinks,
+.emailLinks,
+.helpfulLinks,
+.projectLinks,
+.docLinks,
+.streamingLinks {
+    width: 100%;
+}

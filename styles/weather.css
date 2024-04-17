@@ -1,0 +1,61 @@
+/* css for weather widget */
+#weatherContainer {
+    grid-row: 1;
+    grid-column: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 16px;
+}
+
+#weatherHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 4.25vh;
+
+    font-family: 'Kode Mono', monospace;
+    background: black;
+    border-radius: 16px 16px 0 0;
+    border-bottom: 1px solid gray;
+}
+#weatherDesc {
+    font-size: 1.6em;
+    color: white;
+}
+#weatherTemp {
+    height: min-content;
+    font-size: 2em;
+    font-family: 'Kode Mono', monospace;
+}
+
+.weatherTemperature {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    font-size: 1.7em;
+}
+
+#weatherStats {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 100%;
+
+    font-family: 'Kode Mono', monospace;
+    font-size: 1.35em;
+}
+
+#weatherLocation {
+    margin: 5px;
+
+    font-family: 'Kode Mono', monospace;
+    font-size: 0.85em;
+}

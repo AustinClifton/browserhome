@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/weather.css">
+    <link rel="stylesheet" href="./styles/searchEngine.css">
+    <link rel="stylesheet" href="./styles/quickLinks.css">
+    <link rel="stylesheet" href="./styles/crypto.css">
+    <link rel="stylesheet" href="./styles/bible.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>icyac1</title>
+</head>
+<body>
+    <div class="header">
+        <div id="typingContainer">
+            <span id="title"></span>
+            <span id="blinkingCursor"></span>
+        </div>
+
+        <div id="clock"></div>
+    </div>
+
+    <main class="container">
+
+        <div class="bibleContainer">
+            <p id="bible"></p>
+        </div>
+
+        <div class="widget" id="weatherContainer">
+            <div id="weatherHeader"></div>
+
+            <div class="weatherTemperature">
+                <img class="icon" src="./images/thermometer.png" alt="thermometer">
+                <div id="weatherTemp"></div>
+            </div>
+
+            <div id="weatherStats">
+                <div id="weatherFeelsLike"></div>
+                <div id="weatherHumidity"></div>
+                <div id="weatherWind"></div>
+                <div id="weatherClouds"></div>
+            </div>
+
+            <div id="weatherLocation"></div>
+            
+        </div>
+
+        <div class="widget quickLinksContainer" id="quickLinksContainer">
+            <div class="generalLinks">
+                <h2>general</h2>
+            </div>
+            <div class="cryptoLinks">
+                <h2>crypto</h2>
+            </div>
+            <div class="emailLinks">
+                <h2>email</h2>
+            </div>
+            <div class="codeLinks">
+                <h2>code</h2>
+            </div>
+            <div class="streamingLinks">
+                <h2>streaming</h2>
+            </div>
+            <div class="schoolLinks">
+                <h2>school</h2>
+            </div>
+            <div class="workLinks">
+                <h2>work</h2>
+            </div>
+            <div class="gamesLinks">
+                <h2>games</h2>
+            </div>
+            <div class="projectLinks">
+                <h2>projects</h2>
+            </div>
+            <div class="helpfulLinks">
+                <h2>helpful</h2>
+            </div>
+            <div class="docLinks">
+                <h2>documentations</h2>
+            </div>
+        </div>
+
+        <div class="widget cryptoContainer" id="cryptoContainer">
+            <div class="cryptoBanner">
+                <p class="banner1">Name</p>
+                <p class="banner2">Current Price</p>
+                <p class="banner3">1h/24h/7d</p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/clock.js"></script>
+    <script type="module" src="./js/weather.js"></script>
+    <script type="module" src="./js/bible.js"></script>
+    <script type="module" src="./js/crypto.js"></script>
+    <script type="module" src="./js/links.js"></script>
+</body>
+</html>
