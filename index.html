@@ -31,18 +31,46 @@
         </div>
 
         <div class="widget" id="weatherContainer">
-            <div id="weatherHeader"></div>
 
-            <div class="weatherTemperature">
-                <img class="icon" src="./images/thermometer.png" alt="thermometer">
-                <div id="weatherTemp"></div>
+            <div id="weatherCode"></div>
+
+            <div class="weatherTemperatures">
+                <div id="weatherTemp">
+                    <img id="tempIcon" src="images/thermometer.png">
+                </div>
+                <div class="weatherSmallStats">
+                    <div id="weatherFeelsLike">
+                    </div>
+                    <div id="weatherHumidity">
+                        <img id="SmallStatsIcon" src="images/humidity.png">
+                    </div>
+                </div>
             </div>
 
-            <div id="weatherStats">
-                <div id="weatherFeelsLike"></div>
-                <div id="weatherHumidity"></div>
-                <div id="weatherWind"></div>
-                <div id="weatherClouds"></div>
+            <div class="weatherStats">
+                <div id="weatherPrecipitations">
+                    <div id="weatherprecipitationProbability">
+                        <img id="icon" src="images/precipitation.png">
+                    </div>
+                    <div id="weatherRainfall">
+                        <img id="icon" src="images/rain.png">
+                    </div>
+                    <div id="weatherSnowfall">
+                        <img id="icon" src="images/snow.png">
+                    </div>
+                </div>
+                
+                <div id="weatherWinds">
+                    <div id="weatherClouds">
+                        <img id="icon" src="images/clouds.png">
+                    </div>
+                    <div id="weatherWindSpeed">
+                        <img id="icon" src="images/wind.png">
+                    </div>
+                    <div id="weatherUVIndex">
+                        <img id="icon" src="images/uvindex.png">
+                    </div>
+                </div>
             </div>
 
             <div id="weatherLocation"></div>

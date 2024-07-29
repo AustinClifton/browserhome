@@ -1,27 +1,52 @@
+/**
+ * Austin Clifton
+ * 
+ * JavaScript for dynamically creating and appending link blocks to the quick links container.
+ * Fetches link data from a local JSON file and populates the UI accordingly.
+ */
+
 const linksContainer = document.getElementById('quickLinksContainer');
 
+// Object map to associate section names with their corresponding class names
+const sectionClassMap = {
+    'general': 'generalLinks',
+    'code': 'codeLinks',
+    'school': 'schoolLinks',
+    'work': 'workLinks',
+    'email': 'emailLinks',
+    'helpful': 'helpfulLinks',
+    'games': 'gamesLinks',
+    'crypto': 'cryptoLinks',
+    'doc': 'docLinks',
+    'project': 'projectLinks',
+    'streaming': 'streamingLinks'
+};
+
+/**
+ * Fetches link data from a JSON file and creates link blocks to append to the container.
+ */
 function createLinkBlocks() {
     fetch('./data/links.json')
     .then(response => response.json())
     .then(data => {
         data.forEach(link => {
-            //anchor element for the entire link block
+            // anchor element for the entire link block
             const linkBlock = document.createElement('a');
             linkBlock.classList.add('linkBlock');
             linkBlock.target = "_blank";
             linkBlock.href = link.url;
 
-            //img element for the link icon
+            // img element for the link icon
             const icon = document.createElement('img');
             icon.classList.add('linkIcon');
             icon.src = link.icon;
 
-            //span element for the link name (ex. 'Gmail - ajc4409')
+            // span element for the link name (ex. 'Gmail - ajc4409')
             const linkName = document.createElement('span');
             linkName.classList.add('linkName');
             linkName.textContent = `${link.name}\n`;
 
-            //span element for the link url (ex. 'https://mycourses.rit.edu/d2l/home')
+            // span element for the link url (ex. 'https://mycourses.rit.edu/d2l/home')
             const linkUrl = document.createElement('span');
             linkUrl.classList.add('linkUrl'); 
             const truncatedUrl = link.url.substring(0, 28) + '...';
@@ -31,45 +56,10 @@ function createLinkBlocks() {
             linkBlock.appendChild(icon);
             linkBlock.appendChild(linkName);
 
-            //determine the section div based on the link's section
-            let sectionDivClass = '';
-            switch (link.section) {
-                case 'general':
-                    sectionDivClass = 'generalLinks';
-                    break;
-                case 'code':
-                    sectionDivClass = 'codeLinks';
-                    break;
-                case 'school':
-                    sectionDivClass = 'schoolLinks';
-                    break;
-                case 'work':
-                    sectionDivClass = 'workLinks';
-                    break;
-                case 'email':
-                    sectionDivClass = 'emailLinks';
-                    break;
-                case 'helpful':
-                    sectionDivClass = 'helpfulLinks';
-                    break;
-                case 'games':
-                    sectionDivClass = 'gamesLinks';
-                    break;
-                case 'crypto':
-                    sectionDivClass = 'cryptoLinks';
-                    break;
-                case 'doc':
-                    sectionDivClass = 'docLinks';
-                    break;
-                case 'project':
-                    sectionDivClass = 'projectLinks';
-                    break;
-                case 'streaming':
-                    sectionDivClass = 'streamingLinks';
-                    break;
-            }
+            // Determine the section class based on the link's section
+            const sectionDivClass = sectionClassMap[link.section] || 'generalLinks'; // Fallback to 'generalLinks'
 
-            //append the link block to the appropriate topic div
+            // Append the link block to the appropriate topic div
             const sectionDiv = document.querySelector(`.${sectionDivClass}`);
             sectionDiv.appendChild(linkBlock);
         });
@@ -79,4 +69,5 @@ function createLinkBlocks() {
     });
 }
 
+// Run createLinkBlocks function when the window loads
 window.onload = createLinkBlocks;
