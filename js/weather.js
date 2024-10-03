@@ -8,8 +8,8 @@
  */
 
 const container = document.getElementById('weatherContainer');
-const defaultCoords = { latitude: 43.085556, longitude: -77.656912 }; //rit campus
-const apiKey = 'ecc342730e0d4e348b39e95d1a879fa6'; // OpenCage API key
+const defaultCoords = { latitude: 43.085556, longitude: -77.656912 }; // coordinates of rit campus
+const apiKey = 'ecc342730e0d4e348b39e95d1a879fa6'; // openCage API key
 const weatherCodeMap = {
     0: 'Clear sky',
     1: 'Mainly clear',
@@ -42,9 +42,9 @@ const weatherCodeMap = {
 };
 
 /**
- * utility function used to convert wind direction degrees into compass direction.
- * @param {number} degrees - Wind direction in degrees
- * @returns {string} - Compass direction (e.g., N, NE)
+ * utility function used to convert wind direction degrees into compass direction
+ * @param {number} degrees - wind direction in degrees
+ * @returns {string} - compass direction (e.g., N, NE)
  */
 function degreesToDirection(degrees) {
     const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
@@ -122,7 +122,7 @@ async function getLocationName(latitude, longitude) {
         }
         const data = await response.json();
         if (data.results && data.results.length > 0) {
-            return data.results[0].formatted;  // Return the formatted address
+            return data.results[0].formatted.split(',')[1].trim(); //city name
         } else {
             return 'Location not found';
         }
@@ -180,16 +180,6 @@ async function fetchWeather(latitude, longitude) {
         
         // get UV index
         const UVIndex = hourlyWeather.uv_index_max[0];
-        
-        // add correct 'feels like' icon to container
-        let feelsLikeIcon = document.createElement('img');
-        if (apparentTemperature > temperature) {
-            feelsLikeIcon.src = './images/high_temp.png';
-        } else {
-            feelsLikeIcon.src = './images/cold_temp.png';
-        }
-        feelsLikeIcon.id = 'SmallStatsIcon';
-        document.getElementById('weatherFeelsLike').appendChild(feelsLikeIcon);
 
         // create and append new div elements
         createAndAppendDiv('code', `${weatherDescription}`, 'weatherCode');
