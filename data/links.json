@@ -147,6 +147,12 @@
     "section": "school"
   },
   {
+    "name": "Google Docs",
+    "url": "https://campus.ps.rit.edu/psc/RITXCPRD/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?",
+    "icon": "./images/links/docs.png",
+    "section": "school"
+  },
+  {
     "name": "quizlet",
     "url": "https://quizlet.com/ajc44096/sets",
     "icon": "./images/links/quizlet.svg",
