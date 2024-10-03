@@ -6,10 +6,10 @@
  * courtesy of open-meteo.com (free)
  * last updated in v1.1
  */
+require('dotenv').config();
 
 const container = document.getElementById('weatherContainer');
 const defaultCoords = { latitude: 43.085556, longitude: -77.656912 }; // coordinates of rit campus
-const apiKey = 'ecc342730e0d4e348b39e95d1a879fa6'; // openCage API key
 const weatherCodeMap = {
     0: 'Clear sky',
     1: 'Mainly clear',
@@ -116,7 +116,7 @@ function buildCurrentApiUrl(latitude, longitude) {
  */
 async function getLocationName(latitude, longitude) {
     try {
-        const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`);
+        const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${process.env.WEATHER_KEY}`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -124,11 +124,11 @@ async function getLocationName(latitude, longitude) {
         if (data.results && data.results.length > 0) {
             return data.results[0].formatted.split(',')[1].trim(); //city name
         } else {
-            return 'Location not found';
+            return 'Error';
         }
     } catch (error) {
         console.error('Error fetching location data:', error);
-        return 'Error fetching location';
+        return 'Error';
     }
 }
 

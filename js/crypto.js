@@ -93,7 +93,7 @@ function appendCryptoBlock(data) {
 }
 
 /**
- * Fetches cryptocurrency data for each ID in the cryptoIds array and appends it to the container.
+ * fetches cryptocurrency data for each ID in the cryptoIds array and appends it to the container.
  */
 cryptoIds.forEach(id => {
   fetch(`https://api.coinpaprika.com/v1/tickers/${id}`)
